@@ -30,10 +30,11 @@ class RandomRecomm(object):
 
     def user_recommend(self,user_vec):
         try:
-            sum(user_vec)!='1.0'
-            print sum(user_vec)
+            if sum(user_vec)!=1.0:
+                print "please input validate user vector"
+                return
         except:
-            print "please input validate user vector"
+            print "exception"
         nonzeroindex = nonzero(user_vec)[0]
         temp=[]
         re_list={}
@@ -49,6 +50,6 @@ if __name__ == '__main__':
     a=RandomRecomm()
     a.loadItemsVec("/home/cdg/PycharmProjects/Test/randomrecommend/photos_vec.txt")
     b=a.item_vec
-    d=[0.2,0.0,0.5,0.4]
+    d=[0.2,0.0,0.2,0.7]
     c=a.user_recommend(d)
     print c
